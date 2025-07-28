@@ -1,64 +1,162 @@
-/* Fullscreen Particles Background */
-#particles-js {
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #6a0dad; /* Purple background */
+  color: #ffffff;
+  position: relative;
+}
+
+/* === Navbar === */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.nav-link {
+  color: #fff !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffc107 !important;
+}
+
+/* === Hero Section === */
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: #6a0dad;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #e0e0e0;
+}
+
+/* === Buttons === */
+.btn {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #333333;
+}
+
+/* Ripple Effect */
+.btn::after {
+  content: "";
   position: absolute;
-  width: 100%;
-  height: 100vh;
-  background-color: #1a1a1a;
-  z-index: -1;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
 }
 
-/* Hero Section on top of particles */
-#hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: transparent;
-  padding: 20px;
-  z-index: 1;
+.btn:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
 
-#hero h1, #hero p {
-  color: white;
-}
-
-/* Sections */
+/* === Sections === */
 section {
   padding: 60px 20px;
+  animation: slideUp 1.2s ease;
 }
 
-/* Responsive Typography */
-h1 {
-  font-size: 3rem;
-}
-p {
-  font-size: 1.2rem;
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
 }
 
-/* Responsive Layout */
+/* === Projects Section Override === */
+.bg-light {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.bg-light h2 {
+  color: #6a0dad;
+}
+
+/* === Contact Section === */
+.bg-dark {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+a.text-white:hover {
+  color: #ffc107 !important;
+}
+
+/* === Scroll-to-Top Button === */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+
+#scrollTopBtn:hover {
+  background-color: #333;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-  }
-  p {
-    font-size: 1rem;
-  }
-
-  .container {
-    padding: 0 15px;
-  }
-
-  .row {
-    flex-direction: column;
-  }
+  .hero h1 { font-size: 2.4rem; }
+  .hero p { font-size: 1.2rem; }
+  .navbar-nav { text-align: center; }
+  .nav-link { padding: 10px; }
 }
-
-/* Link style override */
-a {
-  text-decoration: none;
-  color: #007bff;
-}
-a:hover {
-  text-decoration: underline;
-}
-  
